@@ -73,14 +73,14 @@ function drawGradientBackground(hueShift) {
 
 function drawTransparentBlocks(hueShift) {
   const mouseScale = map(mouseX, 0, width, 0.35, 1.45, true);
-  const pulse = sin(frameCount * 0.025) * 0.08;
+  const pulse = sin(frameCount * 0.05) * 0.08;
 
   for (let y = 0; y < grid.length; y += 1) {
     for (let x = 0; x < grid[y].length; x += 1) {
       const block = grid[y][x];
       const distanceToMouse = dist(mouseX, mouseY, block.x, block.y);
       const influence = map(distanceToMouse, 0, width * 0.65, 1.35, 0.74, true);
-      const size = cellSize * (mouseScale + pulse + sin(block.offset + frameCount * 0.018) * 0.08) * influence;
+      const size = cellSize * (mouseScale + pulse + sin(block.offset + frameCount * 0.038) * 0.08) * influence;
       const hueValue = (block.tone + hueShift + x * 3 + y * 5) % 360;
 
       fill(hueValue, 72, 96, 24);
