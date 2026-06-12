@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>透明方塊互動漸層</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="site-shell">
+    <section id="landing" class="landing" aria-labelledby="page-title">
+      <div class="landing__content">
+        <p class="eyebrow">p5.js Interactive Artwork</p>
+        <h1 id="page-title">透明方塊互動漸層</h1>
+        <p class="intro">
+          這是一件以二維陣列排列透明方塊的互動作品。畫面會佈滿半透明矩形，
+          並依照滑鼠位置產生尺寸與色彩變化。
+        </p>
+
+        <div class="interaction-panel" aria-label="互動方式">
+          <div>
+            <span class="axis-label">滑鼠 X 軸</span>
+            <p>控制畫布中方塊的大小變化。</p>
+          </div>
+          <div>
+            <span class="axis-label">滑鼠 Y 軸</span>
+            <p>控制漸層與方塊顏色變化。</p>
+          </div>
+        </div>
+
+        <button id="startButton" class="start-button" type="button">進入作品</button>
+        <p class="copyright">
+          作品版權宣告：本作品由作者原創設計，僅供課堂展示與學習用途。未經作者同意，不得轉載、修改或商業使用。
+        </p>
+      </div>
+    </section>
+
+    <section id="artwork" class="artwork" aria-label="互動作品">
+      <div id="canvasContainer" class="canvas-container"></div>
+      <div class="hud" aria-live="polite">
+        <span>移動滑鼠互動</span>
+        <span>X：大小</span>
+        <span>Y：顏色</span>
+      </div>
+      <button id="backButton" class="back-button" type="button">返回說明</button>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

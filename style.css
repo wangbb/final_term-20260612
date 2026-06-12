@@ -1,0 +1,212 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+  color: #f8fafc;
+  background: #101820;
+}
+
+button {
+  font: inherit;
+}
+
+.site-shell,
+.landing,
+.artwork {
+  width: 100vw;
+  height: 100vh;
+}
+
+.landing {
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background:
+    linear-gradient(135deg, rgba(10, 24, 38, 0.86), rgba(22, 54, 66, 0.72)),
+    radial-gradient(circle at 22% 20%, rgba(252, 202, 70, 0.38), transparent 36%),
+    radial-gradient(circle at 82% 74%, rgba(53, 204, 185, 0.34), transparent 34%),
+    #101820;
+}
+
+.landing__content {
+  width: min(760px, 100%);
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: #ffd166;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 7vw, 5.6rem);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.intro {
+  max-width: 680px;
+  margin: 24px 0 0;
+  color: rgba(248, 250, 252, 0.86);
+  font-size: clamp(1rem, 2vw, 1.18rem);
+  line-height: 1.8;
+}
+
+.interaction-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 32px 0;
+}
+
+.interaction-panel > div {
+  min-height: 118px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.axis-label {
+  display: block;
+  margin-bottom: 10px;
+  color: #35ccb9;
+  font-size: 1.02rem;
+  font-weight: 800;
+}
+
+.interaction-panel p {
+  margin: 0;
+  color: rgba(248, 250, 252, 0.82);
+  line-height: 1.7;
+}
+
+.start-button,
+.back-button {
+  min-height: 46px;
+  border: 0;
+  border-radius: 999px;
+  color: #101820;
+  background: #ffd166;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.start-button {
+  padding: 0 28px;
+}
+
+.start-button:hover,
+.back-button:hover {
+  transform: translateY(-2px);
+  background: #35ccb9;
+}
+
+.copyright {
+  max-width: 720px;
+  margin: 28px 0 0;
+  color: rgba(248, 250, 252, 0.68);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.artwork {
+  position: relative;
+  display: none;
+  background: #101820;
+}
+
+.artwork.is-active {
+  display: block;
+}
+
+.landing.is-hidden {
+  display: none;
+}
+
+.canvas-container,
+.canvas-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hud,
+.back-button {
+  position: fixed;
+  z-index: 2;
+}
+
+.hud {
+  top: 18px;
+  left: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: calc(100vw - 36px);
+  pointer-events: none;
+}
+
+.hud span {
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  color: rgba(248, 250, 252, 0.9);
+  background: rgba(16, 24, 32, 0.44);
+  backdrop-filter: blur(12px);
+  font-size: 0.9rem;
+}
+
+.back-button {
+  right: 18px;
+  bottom: 18px;
+  padding: 0 20px;
+}
+
+@media (max-width: 640px) {
+  body {
+    overflow: auto;
+  }
+
+  .landing {
+    min-height: 100vh;
+    height: auto;
+    place-items: start;
+    padding: 32px 20px;
+  }
+
+  .interaction-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .artwork {
+    height: 100dvh;
+  }
+
+  .hud {
+    top: 12px;
+    left: 12px;
+    max-width: calc(100vw - 24px);
+  }
+
+  .hud span {
+    padding: 7px 10px;
+    font-size: 0.82rem;
+  }
+}
